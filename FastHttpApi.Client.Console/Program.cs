@@ -27,8 +27,8 @@ namespace FastHttpApi.Client.Console
                     serverUrl = newServerUrl;
                 }
                 String responseData = HttpClientHelper.PostResponse(serverUrl, new { first = firstNumber, second = secondNumber });
-                System.Console.WriteLine("Result：" + responseData);
-
+                BeetleX.FastHttpApi.JsonResult responseResult = JsonConvert.DeserializeObject<BeetleX.FastHttpApi.JsonResult>(responseData);
+                System.Console.WriteLine("Result：" + responseResult.Data);
             }
             catch (Exception ex)
             {
